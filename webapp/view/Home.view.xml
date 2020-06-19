@@ -1,0 +1,47 @@
+<mvc:View displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	controllerName="com.gyansys.ZTLRbinding.controller.Home">
+	<Page id="homePage" title="{i18n>title}">
+		<content>
+			<Table id="packHeader" items="{/salesOrder}" growing="true" growingThreshold="4" growingScrollToLoad="false">
+				<headerToolbar>
+					<Toolbar>
+						<content>
+							<Title text="{i18n>salesOrder}" level="H2"/>
+							<ToolbarSpacer/>
+							<Toolbar>
+								<Title text="{i18n>searchFieldTitle}"/>
+								<SearchField width="50%" search="onFilter" placeholder="{i18n>placeholder}"/>
+							</Toolbar>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<!-- TABLE HEADER -->
+				<columns>
+					<Column>
+						<Label text="{i18n>hDocNum}"/>
+					</Column>
+					<Column>
+						<Label text="{i18n>hOrderType}"/>
+					</Column>
+					<Column>
+						<Label text="{i18n>hSalesOrg}"/>
+					</Column>
+					<Column>
+						<Label text="{i18n>hSoldTo}"/>
+					</Column>
+				</columns>
+				<!-- TABLE ITEMS -->
+				<items>
+					<ColumnListItem id="headerList" press="onHeaderPress" type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{= parseInt(${docNumber})}"/>
+							<Text text="{orderType}"/>
+							<Text text="{salesOrg}"/>
+							<Text text="{soldTo}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,15 @@
+<mvc:View 
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="com.gyansys.ZTLRbinding.controller.NotFound">
+	<MessagePage
+		id="notFound"
+		showNavButton="true"
+		title="{i18n>notFoundTitle}"
+		text="{i18n>notFoundText}"
+		enableFormattedText="true"
+		description="{i18n>notFoundDesc}"
+		icon="sap-icon://sales-order"
+		navButtonPress=".onNavBack"/>
+</mvc:View>

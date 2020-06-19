@@ -1,0 +1,47 @@
+<mvc:View 
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="com.gyansys.ZTLRbinding.controller.ItemDetail">
+	<Page id="itemDetailPage" 
+		title="{i18n>item} {= parseInt(${salesOrder>item})} {i18n>oView}"
+		showNavButton="true"
+		class="sapUiResponsiveContentPadding"
+		navButtonPress=".onNavBack">
+		<content>
+			<FlexBox wrap="Wrap">
+				<l:VerticalLayout
+					id="itemDetails"
+					class="sapUiMediumMarginEnd sapUiSmallMarginBottom">
+					<core:Icon
+						src="sap-icon://sales-order"
+						size="3rem"
+						class="sapUiMediumMarginBottom" />
+					
+					<Label text="{i18n>matnr}" design="Bold" />
+					<Text text="{salesOrder>material}" class="sapUiMediumMarginBottom" />
+
+					<Label text="{i18n>quantity}" design="Bold" />
+					<Text text="{salesOrder>quantity}" class="sapUiMediumMarginBottom" />
+
+					<Label text="{i18n>uom}" design="Bold" />
+					<Text text="{salesOrder>uom}" class="sapUiMediumMarginBottom" />
+					
+					<Label text="{i18n>plant}" design="Bold" />
+					<Text text="{salesOrder>plant}" class="sapUiMediumMarginBottom" width="400px" />
+					
+					<Label text="{i18n>status}" design="Bold" />
+					<ObjectStatus
+						id="Status"
+						text="{salesOrder>status}"
+						state="{= ${salesOrder>status} === 'Fully delivered' ? 'Success' :
+								${salesOrder>status} === 'Partially delivered' ? 'Information' :
+								${salesOrder>status} === 'Not yet delivered' ? 'Warning' : 'Error'}" />
+					</l:VerticalLayout>
+				<Image width="100%"	src="{salesOrder>pic}" />
+			</FlexBox>
+		</content>
+	</Page>
+</mvc:View>
